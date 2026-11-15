@@ -1,0 +1,90 @@
+name: gcat-snapshot
+
+# 每天把 GCAT 全量目录拉下来，预聚合成 App 直接用的小体积快照，
+# 发布到 data 分支，App 更新时只下这一个文件（约 10KB）。
+on:
+  schedule:
+    - cron: '30 1 * * *'   # UTC 01:30 = 北京时间 09:30，避开 GCAT 凌晨更新
+  workflow_dispatch:
+
+concurrency:
+  group: gcat-snapshot
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 恢复译文缓存
+        run: |
+          mkdir -p data/snapshot
+          if git ls-remote --exit-code --heads origin data >/dev/null 2>&1; then
+            git fetch origin data --depth=1
+            git show origin/data/news_zh_cache.json > data/snapshot/news_zh_cache.json 2>/dev/null \
+              || rm -f data/snapshot/news_zh_cache.json
+            git show origin/data/news_body_zh_cache.json > data/snapshot/news_body_zh_cache.json 2>/dev/null \
+              || rm -f data/snapshot/news_body_zh_cache.json
+          fi
+
+      - name: 下载 GCAT 全量目录
+        run: |
+          set -e
+          mkdir -p data/raw
+          for f in cat/satcat070k.tsv cat/satcat100k.tsv tables/orgs.tsv; do
+            echo "== $f"
+            curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors --max-time 600 \
+              -o "data/raw/$(basename "$f")" "https://planet4589.org/space/gcat/tsv/$f"
+          done
+          # 70k 之前的历史目录（约 19MB，CI 从美国出口访问，比手机端快得多）
+          echo "== cat/satcat.tsv"
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors --max-time 1800 \
+            -o data/raw/satcat_full.tsv "https://planet4589.org/space/gcat/tsv/cat/satcat.tsv"
+          ls -l data/raw
+
+      - name: 生成快照
+        run: |
+          python3 tools/build_snapshot.py --raw data/raw --out data/snapshot
+          cat data/snapshot/build_info.json
+
+      - name: 校验快照
+        run: |
+          python3 - <<'EOF'
+          import gzip, json
+          d = json.loads(gzip.open('data/snapshot/snapshot.json.gz').read())
+          assert d['v'] >= 1, 'version'
+          assert len(d['countries']) >= 50, 'countries'
+          assert d['meta']['totalPayloads'] > 1000, 'payloads'
+          assert d['meta']['onOrbit'] <= d['meta']['totalPayloads'], 'onOrbit'
+          assert isinstance(d['news'], list), 'news'
+          print('ok cutoff=%s payloads=%d onOrbit=%d countries=%d news=%d' % (
+              d['cutoff'], d['meta']['totalPayloads'], d['meta']['onOrbit'],
+              len(d['countries']), len(d['news'])))
+          EOF
+
+      - name: 发布到 data 分支
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan snapshot-publish
+          git rm -rf . -q || true
+          cp data/snapshot/snapshot.json.gz .
+          cp data/snapshot/news_zh_cache.json .
+          cp data/snapshot/news_body_zh_cache.json .
+          cp data/snapshot/filtered_news.log .
+          cp data/snapshot/build_info.json .
+          git add snapshot.json.gz news_zh_cache.json news_body_zh_cache.json filtered_news.log build_info.json
+          git commit -m "snapshot $(date -u +%F) [skip ci]"
+          git push -f origin HEAD:data
