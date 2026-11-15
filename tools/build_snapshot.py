@@ -104,7 +104,7 @@ def translate_cached(cache, key, text, budget):
     return ''
 
 
-def fetch_news(zh_cache, body_cache, do_translate=True, per_source=30, keep_max=24, bodies_max=6):
+def fetch_news(zh_cache, body_cache, do_translate=True, per_source=30, keep_max=24, bodies_max=0):
     raw, counts = prep_news.fetch_all(per_source)
 
     kept, dropped = [], []
@@ -182,7 +182,7 @@ def main():
     ap.add_argument('--out', default=os.path.join(HERE, '..', 'data', 'snapshot'))
     ap.add_argument('--no-translate', action='store_true', help='只抓取筛选，不调用翻译')
     ap.add_argument('--no-news', action='store_true', help='跳过新闻，只做卫星数据')
-    ap.add_argument('--bodies', type=int, default=6, help='预翻译正文条数上限')
+    ap.add_argument('--bodies', type=int, default=0, help='预翻译正文条数上限（默认 0，阅读页按需翻译）')
     args = ap.parse_args()
 
     raw_dir = os.path.abspath(args.raw)

@@ -129,7 +129,7 @@ def _clean(text):
     return re.sub(r'\s+', ' ', text).strip()
 
 
-def translate(text, retries=2):
+def translate(text, retries=1):
     """先 Google 公开接口，失败回退 MyMemory；都失败返回 None。"""
     q = _clean(text)
     if not q:
@@ -140,12 +140,12 @@ def translate(text, retries=2):
         out = _google(q)
         if out:
             return out
-        time.sleep(1.0)
+        time.sleep(0.8)
     for _ in range(retries):
         out = _mymemory(q)
         if out:
             return out
-        time.sleep(1.2)
+        time.sleep(1.0)
     return None
 
 
@@ -154,7 +154,7 @@ def _google(q):
         url = 'https://translate.googleapis.com/translate_a/single?' + urllib.parse.urlencode(
             {'client': 'gtx', 'sl': 'en', 'tl': 'zh-CN', 'dt': 't', 'q': q[:4800]})
         req = urllib.request.Request(url, headers=UA)
-        with urllib.request.urlopen(req, timeout=15) as r:
+        with urllib.request.urlopen(req, timeout=8) as r:
             data = json.load(r)
         parts = [seg[0] for seg in (data[0] or []) if seg and seg[0]]
         out = _clean(''.join(parts))
@@ -168,7 +168,7 @@ def _mymemory(q):
         url = 'https://api.mymemory.translated.net/get?' + urllib.parse.urlencode(
             {'q': q[:450], 'langpair': 'en|zh-CN', 'de': 'satscope@example.com'})
         req = urllib.request.Request(url, headers=UA)
-        with urllib.request.urlopen(req, timeout=18) as r:
+        with urllib.request.urlopen(req, timeout=12) as r:
             d = json.load(r)
         t = (d.get('responseData') or {}).get('translatedText') or ''
         if t and not t.startswith('MYMEMORY WARNING'):
