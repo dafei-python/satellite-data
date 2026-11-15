@@ -91,8 +91,30 @@ def _date(block):
         return ''
 
 
+def _text(raw):
+    s = re.sub(r'(?is)<!\[CDATA\[|\]\]>', '', raw or '')
+    s = re.sub(r'(?is)<script.*?</script>|<style.*?</style>', ' ', s)
+    s = re.sub(r'(?is)<[^>]+>', ' ', s)
+    s = s.replace('&nbsp;', ' ').replace('&amp;', '&').replace('&quot;', '"').replace('&#8217;', '’')
+    s = re.sub(r'&#(\d+);', lambda m: chr(int(m.group(1))), s)
+    return re.sub(r'\s+', ' ', s).strip()
+
+
+def _paras(raw, limit=8):
+    """从 RSS 的 content:encoded 里取正文段落。"""
+    html = re.sub(r'(?is)<(script|style|figure|figcaption)[^>]*>.*?</\1>', ' ', raw or '')
+    out = []
+    for p in re.findall(r'(?is)<p[^>]*>(.*?)</p>', html):
+        t = _text(p)
+        if len(t) >= 30 and 'The post ' not in t and 'appeared first on' not in t:
+            out.append(t)
+        if len(out) >= limit:
+            break
+    return out
+
+
 def rss(source, url, limit=30):
-    """标准 RSS：只取标题、链接、日期、摘要，按日期倒序。"""
+    """标准 RSS：标题、链接、日期、摘要；有 content:encoded 的源同时取全文段落。"""
     xml = get(url, 40)
     out, seen = [], set()
     for block in re.findall(r'<item[ >]([\s\S]*?)</item>', xml):
@@ -106,8 +128,15 @@ def rss(source, url, limit=30):
             continue
         seen.add(u)
         desc = re.search(r'<description>([\s\S]*?)</description>', block)
+        full = _text(desc.group(1)) if desc else ''
+        enc = re.search(r'<content:encoded>([\s\S]*?)</content:encoded>', block)
+        paras = _paras(enc.group(1)) if enc else []
+        # fb=True 表示正文来自 content:encoded 全文；False 表示只有 RSS 摘要
+        fb = bool(paras)
+        if not paras and full:
+            paras = [full]
         out.append({'t': title, 'd': date, 's': source, 'u': u, 'c': 'INT',
-                    'a': summary(desc.group(1)) if desc else ''})
+                    'a': summary(full) if full else '', 'b': paras, 'fb': fb})
         if len(out) >= limit:
             break
     return out

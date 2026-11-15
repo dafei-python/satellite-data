@@ -73,9 +73,10 @@ jobs:
           assert d['meta']['totalPayloads'] > 1000, 'payloads'
           assert d['meta']['onOrbit'] <= d['meta']['totalPayloads'], 'onOrbit'
           assert isinstance(d['news'], list), 'news'
-          print('ok cutoff=%s payloads=%d onOrbit=%d countries=%d news=%d' % (
+          assert set(d.get('newsBodies') or {}) == set(d.get('newsBodiesMeta') or {}), 'bodies meta'
+          print('ok cutoff=%s payloads=%d onOrbit=%d countries=%d news=%d bodies=%d' % (
               d['cutoff'], d['meta']['totalPayloads'], d['meta']['onOrbit'],
-              len(d['countries']), len(d['news'])))
+              len(d['countries']), len(d['news']), len(d.get('newsBodies') or {})))
           EOF
 
       - name: 发布到 data 分支

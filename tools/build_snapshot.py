@@ -141,41 +141,56 @@ def fetch_news(zh_cache, body_cache, do_translate=True, per_source=30, keep_max=
                 if ac:
                     it['ac'] = ac
 
-    bodies = {}
+    bodies, bodies_meta = {}, {}
     if do_translate and bodies_max > 0:
-        done = 0
         for it in kept:
-            if it.get('c') != 'INT' or done >= bodies_max:
+            if it.get('c') != 'INT':
                 continue
-            cached = body_cache.get(it['u'])
+            url = it['u']
+            cached = body_cache.get(url)
             if cached:
-                bodies[it['u']] = cached
-                done += 1
+                bodies[url] = cached
+                bodies_meta[url] = (body_cache.get('__meta__') or {}).get(url, 'full')
                 continue
-            if budget['fails'] >= 3:
-                break
-            try:
-                paras = prep_news.body_paras(it['u'])[:10]
-            except Exception as e:
-                print('正文抓取失败', it['u'], e)
-                continue
+            # 1) RSS 的 content:encoded（Spaceflight Now 等带全文）
+            src = [p for p in (it.get('b') or []) if len(p) >= 30][:8]
+            origin = 'full' if it.get('fb') else 'summary'
+            # 2) 没有全文再试网页；Phys.org 等对抓取端返回 403
+            if not src or not it.get('fb'):
+                try:
+                    page = [p for p in prep_news.body_paras(url) if len(p) >= 30][:8]
+                except Exception:
+                    page = []
+                if page:
+                    src, origin = page, 'full'
+            # 3) 仍拿不到，用 RSS 摘要作为正文，保证读者有内容可读
+            if not src:
+                src = [it.get('a') or it['t']]
+                origin = 'summary'
             zh = []
-            for p in paras:
-                if len(p) > 6000:
+            for p in src:
+                if len(p) > 4000:
                     break
                 t = prep_news.translate(p)
                 if not t:
-                    zh = []
                     break
                 zh.append(t)
-                time.sleep(0.2)
-            if len(zh) >= 2:
-                bodies[it['u']] = zh
-                body_cache[it['u']] = zh
-                done += 1
-            time.sleep(0.2)
+                time.sleep(0.15)
+            if not zh:
+                zh = [it.get('ac') or it.get('a') or it['t']]
+                origin = 'summary'
+            elif len(zh) < len(src):
+                origin = 'partial'
+            bodies[url] = zh
+            bodies_meta[url] = origin
+            body_cache[url] = zh
+            body_cache.setdefault('__meta__', {})[url] = origin
 
-    return kept, dropped, bodies, budget, counts, per_source_kept
+    for it in kept:
+        it.pop('b', None)
+        it.pop('fb', None)
+
+    return kept, dropped, bodies, bodies_meta, budget, counts, per_source_kept
 
 
 def main():
@@ -184,7 +199,7 @@ def main():
     ap.add_argument('--out', default=os.path.join(HERE, '..', 'data', 'snapshot'))
     ap.add_argument('--no-translate', action='store_true', help='只抓取筛选，不调用翻译')
     ap.add_argument('--no-news', action='store_true', help='跳过新闻，只做卫星数据')
-    ap.add_argument('--bodies', type=int, default=0, help='预翻译正文条数上限（默认 0，阅读页按需翻译）')
+    ap.add_argument('--bodies', type=int, default=12, help='预翻译正文条数上限（来自 RSS 全文/摘要）')
     args = ap.parse_args()
 
     raw_dir = os.path.abspath(args.raw)
@@ -204,9 +219,10 @@ def main():
     zh_cache = load_json(zh_cache_path, {})
     body_cache = load_json(body_cache_path, {})
 
-    news, dropped, bodies, budget, counts, per_source_kept = [], [], {}, {'ok': 0, 'fails': 0}, {}, {}
+    news, dropped, bodies, bodies_meta, budget, counts, per_source_kept = \
+        [], [], {}, {}, {'ok': 0, 'fails': 0}, {}, {}
     if not args.no_news:
-        news, dropped, bodies, budget, counts, per_source_kept = fetch_news(
+        news, dropped, bodies, bodies_meta, budget, counts, per_source_kept = fetch_news(
             zh_cache, body_cache, do_translate=not args.no_translate, bodies_max=args.bodies)
     sources = {name: {'fetched': counts.get(name, 0), 'kept': per_source_kept.get(name, 0)}
                for name in set(counts) | set(per_source_kept)}
@@ -219,6 +235,7 @@ def main():
         'countries': countries,
         'news': news,
         'newsBodies': bodies,
+        'newsBodiesMeta': bodies_meta,
         'stats': {
             'payloads': meta['totalPayloads'],
             'onOrbit': meta['onOrbit'],
