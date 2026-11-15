@@ -60,10 +60,14 @@ def summary(raw):
     s = s.replace('&nbsp;', ' ').replace('&amp;', '&').replace('&quot;', '"').replace('&#8217;', '’')
     s = re.sub(r'&#(\d+);', lambda m: chr(int(m.group(1))), s)
     s = re.sub(r'\s+', ' ', s).strip()
-    if len(s) <= 100:
+    # 优先截到完整句，避免译出「当……时」这种半句
+    m = re.match(r'(.{40,150}?[.!?])(\s|$)', s)
+    if m:
+        return m.group(1)
+    if len(s) <= 130:
         return s
-    cut = s[:100].rsplit(' ', 1)[0].strip()
-    return (cut if len(cut) > 40 else s[:100]) + '…'
+    cut = s[:130].rsplit(' ', 1)[0].strip()
+    return (cut if len(cut) > 40 else s[:130])
 
 
 def _title(block):

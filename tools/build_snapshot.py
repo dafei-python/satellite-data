@@ -14,6 +14,7 @@
 import argparse
 import datetime
 import gzip
+import hashlib
 import json
 import os
 import re
@@ -135,7 +136,8 @@ def fetch_news(zh_cache, body_cache, do_translate=True, per_source=30, keep_max=
             if tc:
                 it['tc'] = tc
             if it.get('a'):
-                ac = translate_cached(zh_cache, it['u'] + '#s', it['a'], budget)
+                akey = it['u'] + '#s' + hashlib.md5(it['a'].encode('utf-8')).hexdigest()[:8]
+                ac = translate_cached(zh_cache, akey, it['a'], budget)
                 if ac:
                     it['ac'] = ac
 
