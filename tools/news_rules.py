@@ -13,6 +13,13 @@ _LAUNCH_VERB = re.compile(
     r"(?i)\b(launches|launched|launching|liftoff|lift[- ]off|lofts|lofted|"
     r"deploys|deployed|sent into orbit|sends? .{0,30} into orbit|"
     r"place[sd]? .{0,20} (?:in|into) orbit|put[s]? .{0,20} into orbit|orbited|"
+    r"soars?|soared|reaches orbit|reached orbit|makes it to orbit|made it to orbit|"
+    r"in orbit|splashdown|catch attempt|booster catch|"
+    r"aborts?|aborted|scrubs?|scrubbed|"
+    r"delays? .{0,40} launch|launch (?:delay|slip|window|attempt)|"
+    r"explodes?|exploded|failure|fails|anomaly|mishap|"
+    r"flight \d+|(?:first|maiden|debut|test|initial) flight|"
+    r"\d+(?:st|nd|rd|th) [\w .,'-]{0,30}?(?:launch|flight)\b|"
     r"(?:maiden|inaugural|first|second|third|final|next) launch(?:es|ed)?|"
     r"launch(?:es|ed)? (?:a|an|the|its|their|two|three|four|\d+|new|another|more)|"
     r"launch of|flight[- ]test(?:s|ed)?|static fire|rolled out to the pad)\b"
@@ -62,6 +69,8 @@ _EXCLUDE_TITLE = re.compile(
     r"awards?|unveils?|unveiling|product|marketing|campaign|advertis\w+|"
     r"\bstock\b|\bshares\b|partnership|memorandum|\bMoU\b|summit|conference|"
     r"expo|trade show|factory|manufacturing plant|opens? (?:new )?office|"
+    r"reveals?|deal with|\bbillion\b|\bmillion\b|contract|backlog|"
+    r"associate member|membership|welcomes?|\d+ years since|"
     r"obituary|passes away|dies at)\b"
     r"|(融资|估值|上市|募资|收购|并购|股权|财报|营收|利润|周年|庆典|"
     r"人事|任免|任命|听证|参议院|众议院|表态|讲话|致辞|会见|座谈|签约|"
@@ -101,8 +110,7 @@ def judge(title, summary=""):
 
     launch_title = bool(_LAUNCH_VERB.search(title) and _HARDWARE.search(title)) or bool(_LAUNCH_CN.search(title))
     policy_title = (bool(_POLICY.search(title)) and bool(_SPACE_CONTEXT.search(title))) or bool(_POLICY_CN.search(title))
-    launch_body = bool(_LAUNCH_VERB.search(text) and _HARDWARE.search(text)) or bool(_LAUNCH_CN.search(text))
-    policy_body = bool(_POLICY.search(text)) and bool(_SPACE_CONTEXT.search(text))
+    text = title + " " + body  # 正文只用于日志排查，不参与判定
 
     # 标题就是发射/规则报道：优先保留，除非标题同时是明显的企业/政治新闻
     if launch_title or policy_title:
@@ -115,8 +123,5 @@ def judge(title, summary=""):
     if bad:
         return False, "", "标题含「%s」" % bad.group(0)
 
-    if launch_body:
-        return True, "launch", ""
-    if policy_body:
-        return True, "policy", ""
+    # 只按标题判断：正文提到 launch 的科学/科普稿不能算发射新闻
     return False, "", "无发射或国际规则信号"

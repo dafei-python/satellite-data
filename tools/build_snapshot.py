@@ -16,6 +16,7 @@ import datetime
 import gzip
 import json
 import os
+import re
 import sys
 import time
 
@@ -103,23 +104,22 @@ def translate_cached(cache, key, text, budget):
     return ''
 
 
-def fetch_news(zh_cache, body_cache, do_translate=True, per_source=18, keep_max=24, bodies_max=6):
-    raw = []
-    try:
-        raw += prep_news.cnsa(per_source)
-    except Exception as e:
-        print('CNSA 抓取失败:', e)
-    try:
-        raw += prep_news.spacenews(per_source)
-    except Exception as e:
-        print('SpaceNews 抓取失败:', e)
+def fetch_news(zh_cache, body_cache, do_translate=True, per_source=30, keep_max=24, bodies_max=6):
+    raw, counts = prep_news.fetch_all(per_source)
 
     kept, dropped = [], []
+    seen_titles = set()
+    per_source_kept = {}
     for it in raw:
         ok, cat, reason = judge(it.get('t', ''), it.get('a', ''))
+        key = re.sub(r'[^a-z0-9\u4e00-\u9fff]+', '', it.get('t', '').lower())[:60]
+        if ok and key in seen_titles:
+            ok, reason = False, '与已收录条目重复'
         if ok:
+            seen_titles.add(key)
             it['cat'] = cat
             kept.append(it)
+            per_source_kept[it.get('s')] = per_source_kept.get(it.get('s'), 0) + 1
         else:
             dropped.append((it, reason))
 
@@ -173,7 +173,7 @@ def fetch_news(zh_cache, body_cache, do_translate=True, per_source=18, keep_max=
                 done += 1
             time.sleep(0.2)
 
-    return kept, dropped, bodies, budget
+    return kept, dropped, bodies, budget, counts, per_source_kept
 
 
 def main():
@@ -202,10 +202,12 @@ def main():
     zh_cache = load_json(zh_cache_path, {})
     body_cache = load_json(body_cache_path, {})
 
-    news, dropped, bodies, budget = [], [], {}, {'ok': 0, 'fails': 0}
+    news, dropped, bodies, budget, counts, per_source_kept = [], [], {}, {'ok': 0, 'fails': 0}, {}, {}
     if not args.no_news:
-        news, dropped, bodies, budget = fetch_news(
+        news, dropped, bodies, budget, counts, per_source_kept = fetch_news(
             zh_cache, body_cache, do_translate=not args.no_translate, bodies_max=args.bodies)
+    sources = {name: {'fetched': counts.get(name, 0), 'kept': per_source_kept.get(name, 0)}
+               for name in set(counts) | set(per_source_kept)}
 
     snap = {
         'v': SNAPSHOT_VERSION,
@@ -225,6 +227,7 @@ def main():
             'newsKept': len(news),
             'newsDropped': len(dropped),
             'newsTranslated': budget['ok'],
+            'newsSources': sources,
         },
     }
     payload = json.dumps(snap, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
@@ -241,7 +244,9 @@ def main():
         f.write('# 筛选口径：仅保留发射类（国家/机构/公司、时间、火箭、载荷、数量、任务）'
                 '与国际规则/监管类（发射、轨道、频率）；其余过滤。\n')
         f.write('# 生成时间 %s；候选 %d 条，保留 %d 条，过滤 %d 条。\n'
-                % (snap['generatedAt'], len(news) + len(dropped), len(news), len(dropped)))
+                % (snap['generatedAt'], sum(v['fetched'] for v in sources.values()), len(news), len(dropped)))
+        f.write('# 各源抓取/保留：%s\n' % '；'.join(
+            '%s %d/%d' % (k, v['fetched'], v['kept']) for k, v in sources.items()))
         for it, reason in dropped:
             f.write('%s\t%s\tDROP\t%s\t%s\t%s\n'
                     % (it.get('d', ''), it.get('s', ''), reason, it.get('t', ''), it.get('u', '')))
@@ -259,6 +264,7 @@ def main():
         'newsDropped': len(dropped),
         'newsTranslated': budget['ok'],
         'translateFails': budget['fails'],
+        'newsSources': sources,
         'bodies': len(bodies),
     }
     save_json(os.path.join(out_dir, 'build_info.json'), info)
