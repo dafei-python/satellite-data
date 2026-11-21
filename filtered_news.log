@@ -1,0 +1,69 @@
+# 筛选口径：仅保留发射类（国家/机构/公司、时间、火箭、载荷、数量、任务）与国际规则/监管类（发射、轨道、频率）；其余过滤。
+# 生成时间 2026-11-21 16:38（北京时间）；候选 66 条，保留 5 条，过滤 61 条。
+# 各源抓取/保留：Phys.org 30/0；Spaceflight Now 10/5；NASA 10/0；国家航天局 0/0；SpaceNews 16/0
+2026-11-19	SpaceNews	DROP	无发射或国际规则信号	The sweet spot for constellation size	https://spacenews.com/the-sweet-spot-for-constellation-size/
+2026-11-19	SpaceNews	DROP	无发射或国际规则信号	Making the case for optical	https://spacenews.com/making-the-case-for-optical/
+2026-11-18	SpaceNews	DROP	标题含「MoU」	Flexell Space and ALATYR Sign MoU to Explore Solar Power Solutions for Orbital Data Centers	https://spacenews.com/flexell-space-and-alatyr-sign-mou-to-explore-solar-power-solutions-for-orbital-data-centers/
+2026-11-18	SpaceNews	DROP	标题含「Partnership」	All Points Logistics Announces Partnership with Expeditors for Space Prep Logistics Center at Kennedy Space Center	https://spacenews.com/all-points-logistics-announces-partnership-with-expeditors-for-space-prep-logistics-center-at-kennedy-space-center/
+2026-11-18	SpaceNews	DROP	无发射或国际规则信号	Origami and solar arrays	https://spacenews.com/origami-and-solar-arrays/
+2026-11-17	SpaceNews	DROP	评论/观点/访谈类，不是发射或规则报道	How AI is pushing satellites to evolve	https://spacenews.com/how-ai-is-pushing-satellites-to-evolve/
+2026-11-17	SpaceNews	DROP	无发射或国际规则信号	Cosmo Bee to flight-test Honeybee Hall thruster with D-Orbit in 2027	https://spacenews.com/cosmo-bee-to-flight-test-honeybee-hall-thruster-with-d-orbit-in-2027/
+2026-11-16	SpaceNews	DROP	无发射或国际规则信号	SpaceNukes Opens Los Alamos Manufacture and Materials Facility to Build Its Next-Generation Space Reactor	https://spacenews.com/spacenukes-opens-los-alamos-manufacture-and-materials-facility-to-build-its-next-generation-space-reactor/
+2026-11-13	SpaceNews	DROP	标题含「Welcomes」	Commercial Space Federation Welcomes CesiumAstro as a New Associate Member	https://spacenews.com/commercial-space-federation-welcomes-cesiumastro-as-a-new-associate-member/
+2026-11-12	SpaceNews	DROP	无发射或国际规则信号	UARX Space Marks a Milestone for Spain’s Space Industry with the Maiden Flight of OSSIE-D, Featuring a Complete Power Subsystem Supplied by DHV Technology	https://spacenews.com/uarx-space-marks-a-milestone-for-spains-space-industry-with-the-maiden-flight-of-ossie-d-featuring-a-complete-power-subsystem-supplied-by-dhv-technology/
+2026-11-12	SpaceNews	DROP	评论/观点/访谈类，不是发射或规则报道	What role does industry play in Europe’s space sovereignty push?	https://spacenews.com/what-role-does-industry-play-in-europes-space-sovereignty-push/
+2026-11-11	SpaceNews	DROP	标题含「25 Years Since」	Moog Marks 25 Years Since ESPA Design Milestone: Innovating Space Rideshare	https://spacenews.com/moog-marks-25-years-since-espa-design-milestone-innovating-space-rideshare/
+2026-11-11	SpaceNews	DROP	无发射或国际规则信号	Horizon Microtechnologies Targets Constellation-Scale Production As Esa Phi-Lab Selection Strengthens Industrialisation Push	https://spacenews.com/horizon-microtechnologies-targets-constellation-scale-production-as-esa-phi-lab-selection-strengthens-industrialisation-push/
+2026-11-10	SpaceNews	DROP	无发射或国际规则信号	Kratos and Seagate Space Partner to Advance Mobile Offshore Launch Capabilities for National Security Missions	https://spacenews.com/kratos-and-seagate-space-partner-to-advance-mobile-offshore-launch-capabilities-for-national-security-missions/
+2026-11-10	SpaceNews	DROP	无发射或国际规则信号	ESCAPADE on its way to Mars after Earth flybys	https://spacenews.com/escapade-on-its-way-to-mars-after-earth-flybys/
+2026-11-09	SpaceNews	DROP	无发射或国际规则信号	CCIA Report Highlights Satellite Connectivity’s Potential to Expand Internet Access and Drive Economic Growth	https://spacenews.com/ccia-report-highlights-satellite-connectivitys-potential-to-expand-internet-access-and-drive-economic-growth/
+2026-11-18	Spaceflight Now	DROP	无发射或国际规则信号	NASA’s Voyager 1 is one light-day from Earth	https://spaceflightnow.com/2026/11/18/nasas-voyager-1-is-one-light-day-from-earth/
+2026-11-13	Spaceflight Now	DROP	无发射或国际规则信号	Starship returns to Starbase and a successful tower catch	https://spaceflightnow.com/2026/11/13/live-coverage-starship-flight-15-attempts-to-recover-full-vehicle-in-double-launch-pad-catch/
+2026-11-07	Spaceflight Now	DROP	标题含「unveils」	AST SpaceMobile unveils $1.3 billion engine deal with Firefly Aerospace to power new heavy-lift rocket	https://spaceflightnow.com/2026/11/07/ast-spacemobile-unveils-1-3-billion-engine-deal-with-firefly-aerospace-to-power-new-heavy-lift-rocket/
+2026-11-05	Spaceflight Now	DROP	标题含「reveals」	Blue Origin reveals new kick stage, engines for its New Glenn rockets	https://spaceflightnow.com/2026/11/05/blue-origin-reveals-new-kick-stage-engines-for-its-new-glenn-rockets/
+2026-11-05	Spaceflight Now	DROP	无发射或国际规则信号	As it happened: spacewalkers install space station’s eighth and final upgraded solar array	https://spaceflightnow.com/2026/11/05/as-it-happened-spacewalkers-install-space-stations-eighth-and-final-upgraded-solar-array/
+2026-11-20	Phys.org	DROP	无发射或国际规则信号	A new way to extract oxygen from lunar soil could support bases on the moon	https://phys.org/news/2026-11-oxygen-lunar-soil-bases-moon.html
+2026-11-20	Phys.org	DROP	无发射或国际规则信号	Researchers trace shifting pulsation modes in δ Scuti star KIC 4737720	https://phys.org/news/2026-11-shifting-pulsation-modes-scuti-star.html
+2026-11-20	Phys.org	DROP	标题含「reveal」	Venus-like conditions reveal how minerals could preserve traces of ancient water	https://phys.org/news/2026-11-venus-conditions-reveal-minerals-ancient.html
+2026-11-20	Phys.org	DROP	标题含「reveal」	Low-viscosity lavas reveal a key to Mars's past	https://phys.org/news/2026-11-viscosity-lavas-reveal-key-mars.html
+2026-11-20	Phys.org	DROP	标题含「reveals」	A star's last gasps: ALMA reveals a giant gas ring and budding hourglass around a star in transition	https://phys.org/news/2026-11-star-gasps-alma-reveals-giant.html
+2026-11-20	Phys.org	DROP	标题含「reveal」	Astronomers reveal the oceanic origin of Europa's sodium cloud	https://phys.org/news/2026-11-astronomers-reveal-oceanic-europa-sodium.html
+2026-11-20	Phys.org	DROP	无发射或国际规则信号	Dark energy may originate from known laws of particle physics	https://phys.org/news/2026-11-dark-energy-laws-particle-physics.html
+2026-11-20	Phys.org	DROP	无发射或国际规则信号	Space travel changes the brain's immune cells, but not behavior	https://phys.org/news/2026-11-space-brain-immune-cells-behavior.html
+2026-11-20	Phys.org	DROP	评论/观点/访谈类，不是发射或规则报道	Why are some galaxies more lopsided than others? A catalog offers clues to the imbalance	https://phys.org/news/2026-11-galaxies-lopsided-clues-imbalance.html
+2026-11-20	Phys.org	DROP	无发射或国际规则信号	Galactic shock: Discovery challenges our understanding of the Milky Way's structure	https://phys.org/news/2026-11-galactic-discovery-milky.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	Mercury-bound X-ray telescope delivers first images after eight years in space	https://phys.org/news/2026-11-mercury-bound-ray-telescope-images.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	Euclid's hunt for strong gravitational lenses is off to a strong start	https://phys.org/news/2026-11-euclid-strong-gravitational-lenses.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	ESA's Hera probe uses 'superhuman' vision to inspect NASA's asteroid crash site	https://phys.org/news/2026-11-esa-hera-probe-superhuman-vision.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	If tiny 'primordial' black holes exist, here's how we might find them	https://phys.org/news/2026-11-tiny-primordial-black-holes.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	Cryptography-inspired method speeds up searches for elusive pulsars	https://phys.org/news/2026-11-cryptography-method-elusive-pulsars.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	NASA conducts latest RS-25 engine test in support of future Artemis missions	https://phys.org/news/2026-11-nasa-latest-rs-future-artemis.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	Lunar sample research yields new discoveries, revealing the history of the moon's largest impact basin	https://phys.org/news/2026-11-lunar-sample-yields-discoveries-revealing.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	NASA's Voyager 1 phones home from an awe-inspiring one light-day away	https://phys.org/news/2026-11-nasa-voyager-home-awe-day.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	Astronomers discover remarkable triple-star system just 28 light-years from Earth	https://phys.org/news/2026-11-astronomers-remarkable-triple-star-years.html
+2026-11-19	Phys.org	DROP	无发射或国际规则信号	Potatoes grown in simulated lunar soil match Earth-grown performance	https://phys.org/news/2026-11-potatoes-grown-simulated-lunar-soil.html
+2026-11-18	Phys.org	DROP	无发射或国际规则信号	First lunar-specific ground motion model could guide seismic hazard assessments on moon	https://phys.org/news/2026-11-lunar-specific-ground-motion-seismic.html
+2026-11-18	Phys.org	DROP	标题含「merger」	Webb confirms first-of-its-kind merger of a supergiant and smaller sun-like star	https://phys.org/news/2026-11-webb-kind-merger-supergiant-smaller.html
+2026-11-18	Phys.org	DROP	无发射或国际规则信号	Spectral clues suggest hollow-core magnetic jet in brightest-ever gamma-ray burst	https://phys.org/news/2026-11-spectral-clues-hollow-core-magnetic.html
+2026-11-18	Phys.org	DROP	无发射或国际规则信号	Strange radio signals from space could come from a dead star	https://phys.org/news/2026-11-strange-radio-space-dead-star.html
+2026-11-18	Phys.org	DROP	无发射或国际规则信号	Bouncing sand grains may explain planet-wide dust storms on Mars	https://phys.org/news/2026-11-sand-grains-planet-wide-storms.html
+2026-11-18	Phys.org	DROP	无发射或国际规则信号	Voyager 1 spacecraft reaches one light-day milestone	https://phys.org/news/2026-11-voyager-spacecraft-day-milestone.html
+2026-11-17	Phys.org	DROP	无发射或国际规则信号	Over a decade of atmospheric data from NASA's Curiosity rover hints at small amounts of surface water on Mars	https://phys.org/news/2026-11-decade-atmospheric-nasa-curiosity-rover.html
+2026-11-17	Phys.org	DROP	评论/观点/访谈类，不是发射或规则报道	How one nuclear blast could cripple nearly every satellite in low Earth orbit	https://phys.org/news/2026-11-nuclear-blast-cripple-satellite-earth.html
+2026-11-17	Phys.org	DROP	无发射或国际规则信号	Astronomers track a flaring dwarf-star duo with exceptional precision	https://phys.org/news/2026-11-astronomers-track-flaring-dwarf-star.html
+2026-11-17	Phys.org	DROP	标题含「million」	This supernova is 50 million light-years away, but that's close enough for astronomers	https://phys.org/news/2026-11-supernova-million-years-astronomers.html
+2026-11-21	NASA	DROP	无发射或国际规则信号	APOD: 2026 November 21 – Voyager’s Neptune	https://science.nasa.gov/image-article/apod-2026-november-21-voyagers-neptune/
+2026-11-20	NASA	DROP	无发射或国际规则信号	Curiosity Spots Drifting Twilight Clouds	https://science.nasa.gov/photojournal/curiosity-spots-drifting-twilight-clouds/
+2026-11-20	NASA	DROP	标题含「Funding」	New NASA Seed Funding Primes Small Businesses for Innovation	https://www.nasa.gov/directorates/rtmd/new-nasa-seed-funding-primes-small-businesses-for-innovation/
+2026-11-20	NASA	DROP	标题含「Awards」	NASA Honor Awards Ceremony Recognizes Employees at Stennis Space Center	https://www.nasa.gov/centers-and-facilities/stennis/honor-awards-ceremony-at-stennis/
+2026-11-20	NASA	DROP	无发射或国际规则信号	NASA’s Curiosity Mars Rover Collects Samples	https://www.nasa.gov/image-article/nasas-curiosity-mars-rover-collects-samples/
+2026-11-20	NASA	DROP	无发射或国际规则信号	APOD: 2026 November 20 – V-G-R	https://science.nasa.gov/image-article/apod-2026-november-20-v-g-r/
+2026-11-20	NASA	DROP	无发射或国际规则信号	The Stormy Southwest Pacific	https://science.nasa.gov/earth/earth-observatory/the-stormy-southwest-pacific/
+2026-11-19	NASA	DROP	无发射或国际规则信号	Challenge: Public Input on Life and the World in 2075	https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/challenge-public-input-on-life-and-the-world-in-2075/
+2026-11-19	NASA	DROP	无发射或国际规则信号	NASA Science Data Powers New Method to Discover Hard-to-Find Pulsars	https://science.nasa.gov/open-science/fermi-data-pulsar-discovery/
+2026-11-19	NASA	DROP	无发射或国际规则信号	Lake Pelku	https://www.nasa.gov/image-article/lake-pelku/
+2026-11-19	Spaceflight Now	KEEP	launch	SpaceX launches classified payload for the U.S. Space Force	https://spaceflightnow.com/2026/11/19/live-coverage-spacex-to-launch-classified-payload-for-the-u-s-space-force-2/
+2026-11-18	Spaceflight Now	KEEP	launch	Vulcan failure investigation focuses on ‘inadequate fuel supply’ to booster engines	https://spaceflightnow.com/2026/11/18/vulcan-failure-investigation-focuses-on-inadequate-fuel-supply-to-booster-engines/
+2026-11-15	Spaceflight Now	KEEP	launch	ULA suffers first outright failure with loss of Vulcan rocket carrying 40 Amazon Leo satellites	https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/
+2026-11-13	Spaceflight Now	KEEP	launch	ULA delays to Sunday Vulcan rocket launch of 40 Leo satellites for Amazon	https://spaceflightnow.com/2026/11/13/ulas-vulcan-rocket-plans-return-to-flight-with-launch-of-40-leo-satellites-for-amazon/
+2026-11-06	Spaceflight Now	KEEP	launch	Falcon 9 launches from California on classified mission for U.S. Space Force	https://spaceflightnow.com/2026/11/06/falcon-9-to-launch-from-california-on-classified-mission-for-u-s-space-force/
