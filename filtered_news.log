@@ -1,0 +1,71 @@
+# 筛选口径：仅保留发射类（国家/机构/公司、时间、火箭、载荷、数量、任务）与国际规则/监管类（发射、轨道、频率）；其余过滤。
+# 生成时间 2026-11-28 17:16（北京时间）；候选 68 条，保留 14 条，过滤 54 条。
+# 各源抓取/保留：Phys.org 30/1；国家航天局 6/6；Spaceflight Now 10/7；NASA 10/0；SpaceNews 12/0
+2026-11-27	SpaceNews	DROP	无发射或国际规则信号	Governments Invest $71.8B in Space Defense as Militarization of Space Accelerates	https://spacenews.com/governments-invest-71-8b-in-space-defense-as-militarization-of-space-accelerates/
+2026-11-26	SpaceNews	DROP	无发射或国际规则信号	The ‘bare-knuckled’ future of life in space with Tim Marshall	https://spacenews.com/the-bare-knuckled-future-of-life-in-space-with-tim-marshall/
+2026-11-24	SpaceNews	DROP	无发射或国际规则信号	Simera Sense, Spacemanic, Zaitra and World from Space Join Forces on an End-to-End Dual-Use Mission Solution	https://spacenews.com/simera-sense-spacemanic-zaitra-and-world-from-space-join-forces-on-an-end-to-end-dual-use-mission-solution/
+2026-11-19	SpaceNews	DROP	无发射或国际规则信号	The sweet spot for constellation size	https://spacenews.com/the-sweet-spot-for-constellation-size/
+2026-11-19	SpaceNews	DROP	无发射或国际规则信号	Making the case for optical	https://spacenews.com/making-the-case-for-optical/
+2026-11-18	SpaceNews	DROP	标题含「MoU」	Flexell Space and ALATYR Sign MoU to Explore Solar Power Solutions for Orbital Data Centers	https://spacenews.com/flexell-space-and-alatyr-sign-mou-to-explore-solar-power-solutions-for-orbital-data-centers/
+2026-11-18	SpaceNews	DROP	标题含「Partnership」	All Points Logistics Announces Partnership with Expeditors for Space Prep Logistics Center at Kennedy Space Center	https://spacenews.com/all-points-logistics-announces-partnership-with-expeditors-for-space-prep-logistics-center-at-kennedy-space-center/
+2026-11-18	SpaceNews	DROP	无发射或国际规则信号	Origami and solar arrays	https://spacenews.com/origami-and-solar-arrays/
+2026-11-17	SpaceNews	DROP	评论/观点/访谈类，不是发射或规则报道	How AI is pushing satellites to evolve	https://spacenews.com/how-ai-is-pushing-satellites-to-evolve/
+2026-11-17	SpaceNews	DROP	无发射或国际规则信号	Cosmo Bee to flight-test Honeybee Hall thruster with D-Orbit in 2027	https://spacenews.com/cosmo-bee-to-flight-test-honeybee-hall-thruster-with-d-orbit-in-2027/
+2026-11-16	SpaceNews	DROP	无发射或国际规则信号	SpaceNukes Opens Los Alamos Manufacture and Materials Facility to Build Its Next-Generation Space Reactor	https://spacenews.com/spacenukes-opens-los-alamos-manufacture-and-materials-facility-to-build-its-next-generation-space-reactor/
+2026-11-13	SpaceNews	DROP	标题含「Welcomes」	Commercial Space Federation Welcomes CesiumAstro as a New Associate Member	https://spacenews.com/commercial-space-federation-welcomes-cesiumastro-as-a-new-associate-member/
+2026-11-23	Spaceflight Now	DROP	标题含「billion」	NASA seeks to begin ‘intergalactic freight network’ with $1.3 billion block purchase of rockets, orbital transfer vehicles	https://spaceflightnow.com/2026/11/23/nasa-seeks-to-begin-intergalactic-freight-network-with-1-3-billion-block-purchase-of-rockets-orbital-transfer-vehicles/
+2026-11-23	Spaceflight Now	DROP	无发射或国际规则信号	As it happened: NG-25 preview news teleconference	https://spaceflightnow.com/2026/11/23/as-it-happened-ng-25-preview-news-teleconference/
+2026-11-18	Spaceflight Now	DROP	无发射或国际规则信号	NASA’s Voyager 1 is one light-day from Earth	https://spaceflightnow.com/2026/11/18/nasas-voyager-1-is-one-light-day-from-earth/
+2026-11-27	Phys.org	DROP	无发射或国际规则信号	Event Horizon Telescope views the dynamics and geometry of a black hole jet in extreme detail	https://phys.org/news/2026-11-event-horizon-telescope-views-dynamics.html
+2026-11-27	Phys.org	DROP	评论/观点/访谈类，不是发射或规则报道	Should space data centers run on solar panels, nuclear reactors or both?	https://phys.org/news/2026-11-space-centers-solar-panels-nuclear.html
+2026-11-27	Phys.org	DROP	无发射或国际规则信号	Strawberries, cucumbers and lemon basil show promise for future moon and Mars menus	https://phys.org/news/2026-11-strawberries-cucumbers-lemon-basil-future.html
+2026-11-27	Phys.org	DROP	标题含「reveals」	Hera reveals stadium-sized asteroid crater from spacecraft impact	https://phys.org/news/2026-11-hera-reveals-stadium-sized-asteroid.html
+2026-11-27	Phys.org	DROP	无发射或国际规则信号	Robots, not astronauts, will have to fix space data centers	https://phys.org/news/2026-11-robots-astronauts-space-centers.html
+2026-11-27	Phys.org	DROP	无发射或国际规则信号	Researchers develop mathematical model to estimate age and degradation of lunar impact craters	https://phys.org/news/2026-11-mathematical-age-degradation-lunar-impact.html
+2026-11-27	Phys.org	DROP	无发射或国际规则信号	The dark matter puzzle deepens: Nearby galaxies challenge cosmic simulations	https://phys.org/news/2026-11-dark-puzzle-deepens-nearby-galaxies.html
+2026-11-27	Phys.org	DROP	无发射或国际规则信号	Meteor blast scars hint at Venus's gradual volcanic makeover	https://phys.org/news/2026-11-meteor-blast-scars-hint-venus.html
+2026-11-27	Phys.org	DROP	无发射或国际规则信号	The faintest supernova ever observed refuses to go out, staying visible for nearly a year	https://phys.org/news/2026-11-faintest-supernova-staying-visible-year.html
+2026-11-27	Phys.org	DROP	评论/观点/访谈类，不是发射或规则报道	Could a hidden planet twice Earth's mass explain strange orbits beyond Neptune?	https://phys.org/news/2026-11-hidden-planet-earth-mass-strange.html
+2026-11-27	Phys.org	DROP	标题含「reveal」	The first flash of a dying star can reveal its hidden surroundings	https://phys.org/news/2026-11-dying-star-reveal-hidden.html
+2026-11-27	Phys.org	DROP	无发射或国际规则信号	A small galaxy's giant dark matter core challenges the standard cosmological model	https://phys.org/news/2026-11-small-galaxy-giant-dark-core.html
+2026-11-26	Phys.org	DROP	无发射或国际规则信号	DESTINY model tracks molecular chemistry on uneven, ice-covered grains in interstellar space	https://phys.org/news/2026-11-destiny-tracks-molecular-chemistry-uneven.html
+2026-11-26	Phys.org	DROP	无发射或国际规则信号	JWST studies a tiny, metal-poor galaxy with just a fraction of the sun's oxygen abundance	https://phys.org/news/2026-11-jwst-tiny-metal-poor-galaxy.html
+2026-11-26	Phys.org	DROP	无发射或国际规则信号	Runaway pulsar escapes the remnant of its own supernova	https://phys.org/news/2026-11-runaway-pulsar-remnant-supernova.html
+2026-11-26	Phys.org	DROP	标题含「million」	Scientists discover quasar formed within a mere 630 million years of the Big Bang, setting a record	https://phys.org/news/2026-11-scientists-quasar-mere-million-years.html
+2026-11-26	Phys.org	DROP	标题含「million」，非发射/规则报道	FCC says SpaceX can deploy 1 million satellites for data centers in space. Scientists are skeptical	https://phys.org/news/2026-11-fcc-spacex-deploy-million-satellites.html
+2026-11-25	Phys.org	DROP	评论/观点/访谈类，不是发射或规则报道	Sending an Australian astronaut to space is expensive. How do we work out if it's worth it?	https://phys.org/news/2026-11-australian-astronaut-space-expensive-worth.html
+2026-11-25	Phys.org	DROP	无发射或国际规则信号	NASA's Europa Clipper zooming by Earth on way to Jupiter's icy moon	https://phys.org/news/2026-11-nasa-europa-clipper-earth-jupiter.html
+2026-11-25	Phys.org	DROP	无发射或国际规则信号	Giant lambda-shaped stellar nursery found in the Milky Way's outskirts	https://phys.org/news/2026-11-giant-lambda-stellar-nursery-milky.html
+2026-11-25	Phys.org	DROP	无发射或国际规则信号	Using lunar craters as free radiation shields for moon base nuclear reactors	https://phys.org/news/2026-11-lunar-craters-free-shields-moon.html
+2026-11-25	Phys.org	DROP	标题含「reveal」	Simulations reveal how a solar vortex and reconnecting magnetic fields can launch a rotating jet	https://phys.org/news/2026-11-simulations-reveal-solar-vortex-reconnecting.html
+2026-11-25	Phys.org	DROP	无发射或国际规则信号	NASA's Hubble views ocean of stars in groundwork for Roman	https://phys.org/news/2026-11-nasa-hubble-views-ocean-stars.html
+2026-11-25	Phys.org	DROP	无发射或国际规则信号	Hera's Didymos asteroid in eclipse	https://phys.org/news/2026-11-hera-didymos-asteroid-eclipse.html
+2026-11-25	Phys.org	DROP	无发射或国际规则信号	South Pole Telescope releases clearest map ever of matter in the distant universe	https://phys.org/news/2026-11-south-pole-telescope-clearest-distant.html
+2026-11-25	Phys.org	DROP	标题含「million」	Webb discovers farthest 'little red dot' from universe's first 500 million years	https://phys.org/news/2026-11-webb-farthest-red-dot-universe.html
+2026-11-25	Phys.org	DROP	标题含「unveils」	Japan unveils rover prototype for moon water mission	https://phys.org/news/2026-11-japan-unveils-rover-prototype-moon.html
+2026-11-24	Phys.org	DROP	无发射或国际规则信号	A star's 'obliquity' likely has little impact on a given planet's habitability	https://phys.org/news/2026-11-star-obliquity-impact-planet-habitability.html
+2026-11-24	Phys.org	DROP	无发射或国际规则信号	Ultrathin 'rainbow' sails could power spacecraft and shade the Earth	https://phys.org/news/2026-11-ultrathin-rainbow-power-spacecraft-earth.html
+2026-11-28	NASA	DROP	无发射或国际规则信号	APOD: 2026 November 28 – Apollo 17 VIP Site Anaglyph	https://science.nasa.gov/image-article/apod-2026-november-28-apollo-17-vip-site-anaglyph/
+2026-11-27	NASA	DROP	无发射或国际规则信号	Artemis III Astronaut Andre Douglas Visits VAB	https://www.nasa.gov/image-article/artemis-iii-astronaut-andre-douglas-visits-vab/
+2026-11-27	NASA	DROP	无发射或国际规则信号	NASA’s NG-25 Mission to Launch Pioneering Space Crops Research	https://science.nasa.gov/science-research/biological-physical-sciences/nasas-ng-25-mission-to-launch-pioneering-space-crops-research/
+2026-11-27	NASA	DROP	无发射或国际规则信号	APOD: 2026 November 27 – The Moon Watchers	https://science.nasa.gov/image-article/apod-2026-november-27-the-moon-watchers/
+2026-11-27	NASA	DROP	无发射或国际规则信号	Shivelyuch Socked In	https://science.nasa.gov/earth/earth-observatory/shivelyuch-socked-in/
+2026-11-26	NASA	DROP	无发射或国际规则信号	APOD: 2026 November 26 – Eye in the Sky: The Milky Way over Lençóis	https://science.nasa.gov/image-article/apod-2026-november-26-eye-in-the-sky-the-milky-way-over-lencois/
+2026-11-26	NASA	DROP	无发射或国际规则信号	Seeking Refuge on Resolution Island	https://science.nasa.gov/earth/earth-observatory/seeking-refuge-on-resolution-island/
+2026-11-25	NASA	DROP	无发射或国际规则信号	NASA Enhances Supplier Program, Announces Mentor-Protégé Agreement	https://www.nasa.gov/organizations/osbp/nasa-enhances-supplier-program-announces-mentor-protege-agreement/
+2026-11-25	NASA	DROP	无发射或国际规则信号	NASA Eyes Crop Candidates for Future Menus	https://science.nasa.gov/directorates/smd/nasa-eyes-crop-candidates-for-future-menus/
+2026-11-25	NASA	DROP	无发射或国际规则信号	Childhood, Career Come Full Circle for Budget Analyst at NASA Goddard	https://www.nasa.gov/centers-and-facilities/goddard/childhood-career-come-full-circle-for-budget-analyst-at-nasa-goddard/
+2026-11-26	Spaceflight Now	KEEP	launch	FCC green lights SpaceX’s plan to launch 1 million ‘Starmind’ data center satellites	https://spaceflightnow.com/2026/11/26/fcc-green-lights-spacexs-plan-to-launch-1-million-starmind-data-center-satellites/
+2026-11-25	国家航天局	KEEP	launch	神舟二十四号载人飞船发射取得圆满成功	https://www.cnsa.gov.cn/n6758823/n6758838/c10818580/content.html
+2026-11-25	Phys.org	KEEP	launch	China launches Shenzhou 24 spacecraft carrying 2 Chinese and 1 Pakistani astronaut	https://phys.org/news/2026-11-china-shenzhou-spacecraft-chinese-pakistani.html
+2026-11-23	Spaceflight Now	KEEP	launch	SpaceX launches classified payload for the U.S. Space Force	https://spaceflightnow.com/2026/11/23/live-coverage-spacex-to-launch-classified-payload-for-the-u-s-space-force-3/
+2026-11-23	Spaceflight Now	KEEP	launch	Arianespace launches 36 Amazon Leo sats amid rocket crunch	https://spaceflightnow.com/2026/11/23/live-coverage-arianespaces-launches-amazon-leo-sats-amid-rocket-crunch/
+2026-11-21	Spaceflight Now	KEEP	launch	SpaceX launches intelligence-gathering satellites for the National Reconnaissance Office	https://spaceflightnow.com/2026/11/21/live-coverage-spacex-to-launch-intelligence-gathering-satellites-for-the-national-reconnaissance-office-3/
+2026-11-19	国家航天局	KEEP	launch	我国成功发射实践二十四号卫星	https://www.cnsa.gov.cn/n6758823/n6758838/c10813940/content.html
+2026-11-19	Spaceflight Now	KEEP	launch	SpaceX launches satellites for the U.S. Space Force’s data network constellation	https://spaceflightnow.com/2026/11/19/live-coverage-spacex-to-launch-classified-payload-for-the-u-s-space-force-2/
+2026-11-18	Spaceflight Now	KEEP	launch	Vulcan failure investigation focuses on ‘inadequate fuel supply’ to booster engines	https://spaceflightnow.com/2026/11/18/vulcan-failure-investigation-focuses-on-inadequate-fuel-supply-to-booster-engines/
+2026-11-15	Spaceflight Now	KEEP	launch	ULA suffers first outright failure with loss of Vulcan rocket carrying 40 Amazon Leo satellites	https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/
+2026-11-11	国家航天局	KEEP	launch	我国成功发射探源计划探路者卫星	https://www.cnsa.gov.cn/n6758823/n6758838/c10817340/content.html
+2026-11-09	国家航天局	KEEP	launch	我国成功发射卫星互联网低轨29组卫星	https://www.cnsa.gov.cn/n6758823/n6758838/c10806800/content.html
+2026-11-06	国家航天局	KEEP	launch	我国成功发射遥感五十一号07-09星	https://www.cnsa.gov.cn/n6758823/n6758838/c10806820/content.html
+2026-10-26	国家航天局	KEEP	launch	我国成功发射卫星互联网低轨28组卫星	https://www.cnsa.gov.cn/n6758823/n6758838/c10795397/content.html
